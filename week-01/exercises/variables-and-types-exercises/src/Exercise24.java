@@ -17,5 +17,7 @@ public class Exercise24 {
         // Interrupting cow.
         // Interrupti...
         // Moo!
+        String fixed = knockKnock.replace('a','o');
+        System.out.println(fixed);
     }
 }
