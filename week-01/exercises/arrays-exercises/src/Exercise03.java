@@ -1,7 +1,8 @@
 public class Exercise03 {
     public static void main(String[] args) {
         String[] commonlyMisspelledWords = {"indict", "fiery", "misspell", "comparsion", "perseverance"};
-
+        commonlyMisspelledWords[2] = "misspelled";
+        commonlyMisspelledWords[3] = "comparison";
         for (int i = 0; i < commonlyMisspelledWords.length; i++) {
             System.out.println(commonlyMisspelledWords[i]);
         }

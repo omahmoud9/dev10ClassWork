@@ -15,10 +15,16 @@ public class Exercise07 {
 
     public static int[] makeRandomArray() {
         Random random = new Random();
+        int sum = 0;
         int[] result = new int[random.nextInt(100) + 50];
         for (int i = 0; i < result.length; i++) {
             result[i] = random.nextInt(1000) - 500;
         }
+        for (int i = 0; i < result.length; i++){
+            sum = sum + result[1];
+        }
+        System.out.println("The sum for the array is: " + sum);
+        System.out.println("the array length is: " + result.length);
         return result;
     }
 }
