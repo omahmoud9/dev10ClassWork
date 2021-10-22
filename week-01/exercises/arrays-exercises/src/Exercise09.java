@@ -15,4 +15,12 @@ public class Exercise09 {
         haystack[index] = "needle";
         return haystack;
     }
+    public static int findNeedle(String[] hayStack){
+        for (int i = 0, i < hayStack.length; i++){
+            if(hayStack[i] = "needle"){
+                return i;}
+
+            }
+        }
+    }
 }
