@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Exercise01 {
+
+    public static void main(String[] args) {
+
+    }
+    public static void displayHotelMenu(){
+        Scanner console = new Scanner(System.in);
+        System.out.println("Guest Menu");
+        System.out.println("==========");
+        System.out.println("1. Check In");
+        System.out.println("2. Check Out");
+        System.out.println("3. View Guests");
+        System.out.println("4. Exit");
+        System.out.println("Choose on option [1-4]"
+
+}

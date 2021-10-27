@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Exercise14 {
+public class  Exercise14 {
 
     public static void main(String[] args) {
         // DAYS OF THE WEEK
@@ -22,6 +22,26 @@ public class Exercise14 {
             case 1:
                 System.out.println("I refuse to say \"a case of the Mondays\".");
                 break;
+            case 2:
+                System.out.println("Tuesday, at least its not monday.");
+                break;
+            case 3:
+                System.out.println("Humpday");
+                break;
+            case 4:
+                System.out.println("Thursday, its almost friday!");
+                break;
+            case 5:
+                System.out.println("Friday, good to be done with work.");
+                break;
+            case 6:
+                System.out.println("Saturday, start of the weekend!");
+                break;
+            case 7:
+                System.out.println("Sunday, time to relax.");
+
+                break;
+
             default:
                 System.out.println("I don't recognize that day.");
                 break;

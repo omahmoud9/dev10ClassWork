@@ -12,5 +12,6 @@ public class Exercise15 {
         String opposite = null;
 
         // 1. Re-implement Exercise08 using a switch statement.
+
     }
 }
