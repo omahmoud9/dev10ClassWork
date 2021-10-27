@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Exercise15 {
     /* FIZZ BUZZ
 
@@ -32,4 +34,24 @@ public class Exercise15 {
     17
     Fizz
      */
+    public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        System.out.println("Pick a number");
+        int input = Integer.parseInt(console.nextLine());
+        for(int i=1; i<= input; i++){
+            fizzBuzz(i);
+        }
+    }
+    public static void fizzBuzz(int one){
+        if(one % 3 ==0 && one % 5 == 0) {
+            System.out.println("FizzBuzz");
+        }else if (one % 3 == 0) {
+            System.out.println("Fizz");
+        }else if(one % 5 == 0) {
+            System.out.println("Buzz");
+        }else{
+            System.out.println(one);
+        }
+    }
 }
+

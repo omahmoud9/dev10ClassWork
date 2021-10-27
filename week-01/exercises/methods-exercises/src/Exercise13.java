@@ -7,6 +7,22 @@ public class Exercise13 {
     // Description: return true if the three parameters are in ascending order.
     // Otherwise, returns false.
     // (See Exercise07.)
+    public static boolean areInOrder(int one, int two, int three){
+        boolean order = false;
+        if(one<two && two < three ){
+            order = true;
+        }
+        return order;
+    }
+    public static boolean areContiguous(int one, int two, int three){
+        boolean contiguous = false;
+        if( two +1 == one || two - 1 == one) {
+            if (three +1 == two || three - 1 == two) {
+                contiguous = true;
+            }
+        }
+        return contiguous;
+    }
 
     // 2. Create a method.
     // Name: areContiguous
@@ -25,6 +41,16 @@ public class Exercise13 {
     // 7, 5, 6 -> false
     // 1, 0, 1 -> true
 
+        public static boolean isAscendingContiguous(int one, int two, int three){
+            boolean both = false;
+            boolean ascending = areInOrder(one,two,three);
+            boolean contiguous = areContiguous(one,two,three);
+            if (ascending && contiguous){
+                both = true;
+            }
+            return both;
+
+    }
     // 3. Create a method.
     // Name: isAscendingContiguous
     // Inputs: int, int, int
@@ -36,9 +62,9 @@ public class Exercise13 {
 
     public static void main(String[] args) {
         // 4. Uncomment the code below and confirm it works.
-        // System.out.println(isAscendingContiguous(3, 4, 5)); // true
-        // System.out.println(isAscendingContiguous(-10, 4, 100)); // false
-        // System.out.println(isAscendingContiguous(2, 1, 2)); // false
-        // System.out.println(isAscendingContiguous(5, 4, 3)); // false, not ascending
+         System.out.println(isAscendingContiguous(3, 4, 5)); // true
+         System.out.println(isAscendingContiguous(-10, 4, 100)); // false
+         System.out.println(isAscendingContiguous(2, 1, 2)); // false
+         System.out.println(isAscendingContiguous(5, 4, 3)); // false, not ascending
     }
 }
