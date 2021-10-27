@@ -1,9 +1,22 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Exercise11 {
 
     public static void main(String[] args) {
         int[] values = makeRandomArray();
+        int[] positive = new int[numberOfPositive(values)];
+        int position = 0;
+        for(int i= 0; i < values.length; i++) {
+
+            if (values[i] % 2 == 0) {
+                positive[position] = values[i];
+                position++;
+            }
+        }
+        System.out.println(Arrays.toString(positive));
+
+
 
         // 1. Count the number of positive elements in `values`.
         // 2. Create a new int[] to hold the positive elements.
@@ -21,4 +34,12 @@ public class Exercise11 {
         return result;
     }
 
+    public static int numberOfPositive(int[] numbers){
+        int numberOfPositive = 0;
+        for(int i= 0; i < numbers.length; i++){
+            if (numbers[i] % 2 ==0){
+                numberOfPositive++;
+            };
+        }return numberOfPositive;
+    }
 }
