@@ -2,6 +2,7 @@
 
 ## launch
 
+<<<<<<< HEAD
 * [x] print welcome message
 * [x] gets number of capsules from user
 * [x] creates an array for the number of capsules
@@ -9,6 +10,16 @@
     * [x] Check in a guest
     * [x] Check out a guest
     * [x] Check rooms (room choice + && - 5)
+=======
+* [ ] print welcome message
+* [ ] gets number of capsules from user
+* [ ] creates an array for the number of capsules
+* [ ] Ask what the user would like to do
+    * [ ] Check in a guest
+    * [ ] Check out a guest
+    * [ ] Check rooms (room choice + && - 5)
+    * [ ] Exit program
+>>>>>>> 1c05a37d7946f0b671a9e52a517a4dc8c0c52a41
 
 ## Check in
 * [ ] Checks if rooms are open
@@ -16,6 +27,12 @@
 * [x] Asks user which capsule to place new guest
     * [x] checks if capsule is occupied, loop until unoccupied
 
+<<<<<<< HEAD
+=======
+* [ ] Asks user for guest name
+* [ ] Asks user which capsule to place new guest
+    * [ ] checks if capsule is occupied, loop until unoccupied
+>>>>>>> 1c05a37d7946f0b671a9e52a517a4dc8c0c52a41
 
 ## Check out
 * [ ] Checks to see if at least 1 room has a guest
