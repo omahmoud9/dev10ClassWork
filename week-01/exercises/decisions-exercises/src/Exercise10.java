@@ -21,5 +21,37 @@ public class Exercise10 {
         // If a lbs/zone combo does not exist, print a warning message for the user.
 
         Scanner console = new Scanner(System.in);
+        System.out.print("Parcel: ");
+        int parcelNumber = Integer.parseInt(console.nextLine());
+        System.out.print("Lbs:");
+        int lbs = Integer.parseInt(console.nextLine());
+        System.out.print("Zone: ");
+        int zone = Integer.parseInt(console.nextLine());
+        if (lbs  == 1 && zone < 3){
+            System.out.println("Your Price is 7.50");
+        }else if (lbs  == 1 && zone == 3) {
+            System.out.println("Your Price is 7.85");
+        } else if (lbs  == 2 && zone < 3){
+            System.out.println("Your Price is 8.25");
+        }else if (lbs  == 2 && zone == 3) {
+            System.out.println("Your Price is 8.70");
+        }else if (lbs  == 3 && zone < 3){
+            System.out.println("Your Price is 8.70");
+        }else if (lbs  == 3 && zone == 3) {
+            System.out.println("Your Price is 8.90");
+        }else if (lbs  == 4 && zone < 3){
+            System.out.println("Your Price is 9.20");
+        }else if (lbs  == 4 && zone == 3) {
+            System.out.println("Your Price is 10.55");
+        }else if (lbs  == 5 && zone < 3){
+            System.out.println("Your Price is 10.20");
+        }else if (lbs  == 5 && zone == 3) {
+            System.out.println("Your Price is 11.30");
+        }else {
+            System.out.println("Warning combination does not exist");
+        }
+
+
+
     }
 }
