@@ -31,10 +31,9 @@
 * [ ] print welcome to gomoku message
 * [ ] prompt user for 2 players
    * [ ] player name
-   * [ ] set player color
 * [ ] Start game
   * [ ] print randomizing
-  * [ ] randomizes which player goes first
+  * [ ] randomizes  player color, black/white
 
 ## Game Play
 * [ ] prints players name turn
@@ -43,21 +42,21 @@
         * [ ] no overlap
         * [ ] on board
 * [ ] places stone 
-* [ ] checks to see if game is won
-* [ ] swithces player and repeats
+* [ ] checks to see if game is won/tie
+* [ ] swithces player and repeats till game over
 
 ## End game
-* [ ] checks to see if game won or tie
+* [ ] checks to see if game wow/tie
     * [ ]  if win, prints player won
-    * [ ]  if tie, print game tie
+    * [ ]  if tie, print game tie, no more moves
 * [ ] prompt play again
     * [ ] play again
-        * [ ] resets board
+        * [ ] empties char[][] 
     * [ ] exit
 
 ## print board
 * [ ] print board
-    * [ ] determine how to get board state
+    * [ ] iterate through char[][] placing B/W  prinitng B/W at placed location
 
 ## Play turn
 * [ ] display users turn
