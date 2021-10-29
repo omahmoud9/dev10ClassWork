@@ -38,10 +38,10 @@
 ## Game Play
 * [ ] prints players name turn
 * [ ] prompts for row and column
-    * [ ] ensures valid move
+    * [ ] ensures valid move    /// IC -- check if these validations already available
         * [ ] no overlap
         * [ ] on board
-* [ ] places stone 
+* [ ] places stone              /// IC --- ...and re-draw the board here?
 * [ ] checks to see if game is won/tie
 * [ ] swithces player and repeats till game over
 
@@ -51,10 +51,10 @@
     * [ ]  if tie, print game tie, no more moves
 * [ ] prompt play again
     * [ ] play again
-        * [ ] empties char[][] 
+        * [ ] empties char[][]  /// IC -- where this char[][] has been instatiated?
     * [ ] exit
 
-## print board
+## print board                
 * [ ] print board
     * [ ] iterate through char[][] placing B/W  prinitng B/W at placed location
 
