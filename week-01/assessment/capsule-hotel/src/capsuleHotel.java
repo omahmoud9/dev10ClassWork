@@ -19,8 +19,8 @@ public class capsuleHotel {
                 do {
                     int guestPlacement = getCapsuleNumber(capsules.length);
                     if (capsules[guestPlacement] == null) {
-                        capsules[guestPlacement] = name;
-                        System.out.format("%s has been checked in to capsule #%s", capsules[guestPlacement], guestPlacement);
+                        capsules[guestPlacement ] = name;
+                        System.out.format("%s has been checked in to capsule #%s \n", capsules[guestPlacement], guestPlacement);
                         occupied = true;
                         userChoice = (displayHotelMenu());
                     }else
@@ -99,16 +99,33 @@ public class capsuleHotel {
 
 
     public static void displayRooms(int guestPlacement, String[] capsules){
-        for(int i = guestPlacement-5; i<guestPlacement+6; i++ ){
-            if(capsules[i] == null){
-                System.out.println(i +":[unoccupied]");
-            }else System.out.println(i + ":" + capsules[i]);
+        if (guestPlacement <= 5) {
+            for (int i = 0; i < guestPlacement + 6; i++) {
+                if (capsules[i] == null) {
+                    System.out.println(i+1 + ":[unoccupied]");
+                } else System.out.println(i+1 + ":" + capsules[i]);
+            }
+
+
+        }else if(guestPlacement >= capsules.length - 4) {
+            for (int i = guestPlacement -6; i < 100; i++) {
+                if (capsules[i] == null) {
+                    System.out.println(i+1 + ":[unoccupied]");
+                } else System.out.println(i+1 + ":" + capsules[i]);
+            }
+
+        }
+        else{
+            for(int i = guestPlacement-6; i<guestPlacement+6; i++ ){
+                if(capsules[i] == null){
+                    System.out.println(i+1 +":[unoccupied]");
+                }else System.out.println(i+1 + ":" + capsules[i]);
+            }
         }
     }
 
 
     public static boolean exitApp(){
-        Scanner console = new Scanner(System.in);
         System.out.println("Exit");
         System.out.println("====");
         System.out.println("Are you sure you want to exit\n" +
