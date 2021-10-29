@@ -9,7 +9,7 @@
 * [ ] Display the final result of the game.
 * [ ] Give the option to play again.
 
-## tech requierments
+## requierments
 
 * [ ] All rules are modeled inside the Gomoku class. You may not modify Gomoku, Player, HumanPlayer, RandomPlayer, Stone, or Result.
 * [ ] Add your code to the project provided. Be sure to use sensible class names, method names, and packages.
