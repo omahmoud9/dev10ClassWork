@@ -33,8 +33,8 @@
    * [ ] player name
    * [ ] set player color
 * [ ] Start game
-        * [ ] print randomizing
-        * [ ] randomizes which player goes first
+  * [ ] print randomizing
+  * [ ] randomizes which player goes first
 
 ## Game Play
 * [ ] prints players name turn
