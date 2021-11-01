@@ -12,6 +12,10 @@ class Exercise04Test {
         // The third argument in `assertEquals` is a delta. It represents the margin of error for equality.
         // As long as the expected and actual differ by less than the delta, the test passes.
         assertEquals(1.25, instance.calculateTotalCost(0.25, 5), 0.001);
+        assertEquals(19, instance.calculateTotalCost(1, 20), 0.001);
+        assertEquals(27, instance.calculateTotalCost(1, 30), 0.001);
+        assertEquals(59.5, instance.calculateTotalCost(1, 70), 0.001);
         assertEquals(99.06, instance.calculateTotalCost(1.27, 100), 0.001);
+
     }
 }

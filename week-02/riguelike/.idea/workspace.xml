@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="612bf677-8154-4048-8b1c-501c06eb1732" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/cap/cap.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/cap/src/capsuleHotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/caps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/rainforest/rainforest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/rainforest/src/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/rainforest/src/NationalForest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/src/capsuleHotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/src/palandrom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/assessment/untitled/untitled.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise09.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assessment/Palandrom/src/fight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assessment/Palandrom/src/fighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/assessment/capsule-hotel/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise02.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise04.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise05.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise06.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise06.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise08.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise08.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise11.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise11.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise12.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise12.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise14.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise14.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise15.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-01/exercises/decisions-exercises/src/Exercise15.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../week-01/exercises/repetition-exercises/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assessment/gomoku/gomoku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../assessment/gomoku/gomoku.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercises/list-exercises/src/main/java/Exercise10.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exercises/list-exercises/src/main/java/Exercise10.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="203RrQJNYwqL3EXnP666gshSnqF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Rougelike" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="612bf677-8154-4048-8b1c-501c06eb1732" name="Default Changelist" comment="" />
+      <created>1635271483390</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635271483390</updated>
+    </task>
+    <servers />
+  </component>
+</project>

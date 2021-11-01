@@ -23,6 +23,17 @@ public class Exercise04 {
      * @return the total cost with volume discounts applied
      */
     public double calculateTotalCost(double price, int quantity) {
-        return 0.0;
+        double discount = 1.0;
+        if (quantity >15 && quantity <=25)
+            discount =  0.95;
+        else if (quantity >25 && quantity <=50)
+            discount =  0.90;
+        else if (quantity >50 && quantity <=75)
+            discount =  0.85;
+        else if (quantity >75)
+            discount =  0.78;
+
+        return price * quantity * discount;
+
     }
 }

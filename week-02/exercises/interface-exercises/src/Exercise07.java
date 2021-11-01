@@ -41,6 +41,37 @@ public class Exercise07 {
         do {
             System.out.print("Select [1-4]:");
             input = console.nextLine();
+
+            switch (input) {
+                case "1":
+                    System.out.println("Starting Balance");
+                    int startingBalance = Integer.parseInt(console.nextLine());
+                    System.out.println("Wallet Description");
+                    String description = console.nextLine();
+                    MoneyStorage wallet = new Wallet(startingBalance, description);
+                    return wallet;
+                case "2":
+                    System.out.println("Starting Balance");
+                    startingBalance = Integer.parseInt(console.nextLine());
+                    System.out.println("Mortgage Account number");
+                    description = console.nextLine();
+                    MoneyStorage mortgage = new Mortgage(startingBalance, description);
+                    return mortgage;
+                case "3":
+                    System.out.println("Starting Balance");
+                    startingBalance = Integer.parseInt(console.nextLine());
+                    System.out.println("Vault number");
+                    description = console.nextLine();
+                    MoneyStorage vault = new Vault(startingBalance, description);
+                    return vault;
+                case "4":
+                    System.out.println("Starting Balance");
+                    startingBalance = Integer.parseInt(console.nextLine());
+                    System.out.println("Account number");
+                    description = console.nextLine();
+                    MoneyStorage bankAccount = new BankAccount(startingBalance, description);
+                    return bankAccount;
+            }
         } while (!(input.length() == 1 && input.charAt(0) >= '1' && input.charAt(0) <= '4'));
 
         // 1. Add a switch statement to handle options 1 - 4.
@@ -53,6 +84,7 @@ public class Exercise07 {
         // - for Vault?
 
         // 3. Return the Wallet, Mortgage, Vault, or Bank Account instead of null.
+//        System.out.println("You messed up");
         return null;
     }
 
