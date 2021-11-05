@@ -26,7 +26,7 @@ hs_err_pid*
 # We want some of the .idea configuration. 
 # Namely, the JDK version so students don't have to manually set the SDK. 
 # We don't want source control configuration.
-**/.idea/vcs.xml
+.idea/
 .idea/
 .iml
 

@@ -5,6 +5,13 @@ public class Card {
     // 1. Add a Suit and Rank field the Card class.
     // 2. Add a constructor that accepts a Suit and Rank and sets the appropriate fields.
     // 3. Add getters for both suit and rank.
+    private Suit suit;
+    private Rank rank;
+
+    public Card(Rank rank, Suit suit) {
+        this.suit = suit;
+        this.rank = rank;
+    }
 
     public String getName() {
 
