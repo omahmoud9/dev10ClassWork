@@ -1,0 +1,10 @@
+package learn.solarFarm.models;
+
+public enum Materials {
+    MULTICRYSTALLINE_SILICON,
+    MONORYSTALLINE_SILICON,
+    AMORPHOUS_SILICON,
+    CADMIUM_TELLURIDE,
+    COPPER_INDIUM_GALLUIM_SELENIDE;
+
+}

@@ -32,11 +32,11 @@
 ## Domain               1.5 hour
 * [ ] Add panel
     * [ ] ensure feilds are correct
-        * [ ] section
-        * [ ] row
-        * [ ] col
-        * [ ] material
-        * [ ] trackable
+        * [ ] row 1 -250                        
+        * [ ] Column 1- 250                      
+        * [ ] year installed 1954 - 2021
+        * [ ] Materials
+            * [ ] enum, 5 types
 * [ ] find by section 
     * [ ] validates section given
 * [ ] update panel
@@ -46,14 +46,20 @@
     * [ ] validates panel selection
 
 
+
 ## Data Access    1.5 hour
 * [ ] id, unique    
 * [ ] Sections, required 
-* [ ] row 1 -250                        
-* [ ] Column 1- 250                      
-* [ ] year installed 1954 - 2021
-* [ ] Materials
-    * [ ] enum, 5 types
+
 * [ ] boolean istracking 
 * [ ] scans file to ensure each panel is unique
     * [ ] saves if unique, throws custom exception if not 
+
+
+
+## Model   10 min ?
+* [ ] id,section,row,coloum,material,year
+* [ ] delimter : ~
+* [ ] empty constructor
+* [ ] constructor for existing panel
+* [ ] getter and setter for all feilds 
