@@ -7,7 +7,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SolarPanelFileRepository {
+public class SolarPanelFileRepository implements SolarPanelRepository {
+
 
     private final String filePath;
 
@@ -15,8 +16,10 @@ public class SolarPanelFileRepository {
         this.filePath = filePath;
     }
 
+    @Override
     public List<SolarPanel> findAll() throws DataAccessException {
         ArrayList<SolarPanel> result = new ArrayList<>();
+
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             reader.readLine();
             for (String line = reader.readLine(); line != null; line = reader.readLine()) {
@@ -29,19 +32,19 @@ public class SolarPanelFileRepository {
                     solarPanel.setColumn(Integer.parseInt(fields[3]));
                     solarPanel.setMaterial(Materials.valueOf(fields[4]));
                     solarPanel.setYear(Integer.parseInt(fields[5]));
-                    solarPanel.setTrackable(fields[6].equals(true));
+                    solarPanel.setTrackable(fields[6].equals("true"));
                     result.add(solarPanel);
                 }
             }
         } catch (FileNotFoundException ex){
 
         } catch (IOException ex) {
-            throw new DataAccessException(ex.getMessage(), ex);
-
+            throw new DataAccessException(ex.getMessage());
         }
         return result;
     }
 
+    @Override
     public SolarPanel findById (int solarPanelId) throws DataAccessException {
         for(SolarPanel solarPanel: findAll()){
             if(solarPanel.getPanelId() == solarPanelId) {
@@ -51,6 +54,7 @@ public class SolarPanelFileRepository {
         return null;
     }
 
+    @Override
     public List<SolarPanel> findBySection(int section) throws DataAccessException {
         ArrayList<SolarPanel> result = new ArrayList<>();
         for(SolarPanel solarPanel: findAll()) {
@@ -61,6 +65,7 @@ public class SolarPanelFileRepository {
         return result;
     }
 
+    @Override
     public SolarPanel add(SolarPanel solarPanel) throws DataAccessException {
         List<SolarPanel> all = findAll();
 
@@ -77,9 +82,10 @@ public class SolarPanelFileRepository {
         return solarPanel;
     }
 
+    @Override
     public boolean update(SolarPanel solarPanel) throws DataAccessException {
         List<SolarPanel> all = findAll();
-        for(int i= 0; 1<all.size(); i++) {
+        for(int i= 0; i < all.size() ; i++) {
             if(all.get(i).getPanelId() == solarPanel.getPanelId()){
                 all.set(i,solarPanel);
                 writeAll(all);
@@ -89,9 +95,10 @@ public class SolarPanelFileRepository {
         return false;
     }
 
+    @Override
     public boolean deleteById(int PanelId) throws DataAccessException {
         List<SolarPanel> all = findAll();
-        for(int i= 0; 1<all.size(); i++) {
+        for(int i= 0; i <all.size(); i++) {
             if(all.get(i).getPanelId() == PanelId){
                 all.remove(i);
                 writeAll(all);
@@ -108,9 +115,10 @@ public class SolarPanelFileRepository {
                 writer.println(serialize(s));
             }
         } catch (IOException ex){
-            throw new DataAccessException(ex.getMessage(), ex);
+            throw new DataAccessException(ex.getMessage());
         }
     }
+
 
     private String serialize(SolarPanel solarPanel){
         return String.format("%s,%s,%s,%s,%s,%s,%s,",

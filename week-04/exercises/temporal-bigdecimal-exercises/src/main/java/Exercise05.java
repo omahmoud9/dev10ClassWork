@@ -1,7 +1,19 @@
+import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Exercise05 {
+
+    private LocalDate nextFriday(LocalDate date) {
+        LocalDate friday = date;
+        do {
+            friday = friday.plusDays(1);
+        } while (friday.getDayOfWeek() != DayOfWeek.FRIDAY);
+        return friday;
+    }
 
     // THE GODMOTHER
     // ========================
@@ -12,7 +24,36 @@ public class Exercise05 {
     // Payments start on the first Friday of the year.
     // Given a date, calculate payments expected from that date until the end of the year.
     BigDecimal calculateGiftsTilEndOfYear(LocalDate date) {
-        return null;
+      BigDecimal result = BigDecimal.ZERO;
+      List<LocalDate> payDays = getOddFridays(date.getYear());
+
+      for (LocalDate payday: payDays) {
+          if (date.compareTo(payday) <= 0){
+              result = result.add(BigDecimal.TEN);
+          }
+      }
+
+
+      return result;
+    }
+
+    private LocalDate firstFridayOfYear(int year) {
+        LocalDate firstFriday = LocalDate.of(year,1,1);
+        while(firstFriday.getDayOfWeek() != DayOfWeek.FRIDAY) {
+            firstFriday = firstFriday.plusDays(1);
+        }
+        return firstFriday;
+    }
+
+    private List<LocalDate> getOddFridays(int year) {
+        ArrayList<LocalDate> fridays = new ArrayList<>();
+        LocalDate newYears = LocalDate.of(year + 1, 1, 1);
+        LocalDate friday = firstFridayOfYear(year);
+        do {
+            fridays.add(friday);
+            friday = friday.plusWeeks(2);
+        }while (friday.isBefore(newYears));
+        return fridays;
     }
 
     // 2. Your Godmother is getting quirky. She adjusted her payment schedule.
@@ -24,7 +65,14 @@ public class Exercise05 {
     // July 12 == $12
     // Given a date, calculate payments expected from that date until the end of the year.
     BigDecimal calculateQuirkyGiftsTilEndOfYear(LocalDate date) {
-        return null;
-    }
+        BigDecimal result = BigDecimal.ZERO;
+        List<LocalDate> payDays = getOddFridays(date.getYear());
 
+        for (LocalDate payday: payDays) {
+            if (date.compareTo(payday) <= 0){
+                result = result.add(BigDecimal.valueOf(payday.getDayOfMonth()));
+            }
+        }
+        return result;
+    }
 }

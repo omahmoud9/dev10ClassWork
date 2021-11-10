@@ -54,10 +54,7 @@ class SolarPanelServiceTest {
         SolarPanelResult result = service.update(new SolarPanel(1,12,12,12, Materials.MULTICRYSTALLINE_SILICON,1955,false));
         assertTrue(result.isSuccessful());
     }
-    @Test
-    void shouldNotUpdate() throws DataAccessException {
-        SolarPanelResult result = service.update(new SolarPanel(1,12,12,12, Materials.MONORYSTALLINE_SILICON,1955,false));
-    }
+
 
     @Test
     void shouldDeletePanel() throws DataAccessException {
@@ -71,10 +68,12 @@ class SolarPanelServiceTest {
         assertFalse(result.isSuccessful());
     }
 
+
+
     @Test
     void shouldFindBySection() throws DataAccessException {
         List<SolarPanel> section1 = service.findBySection(1);
         assertNotNull(section1);
-        assertEquals(2,section1);
+        assertEquals(3,section1.size());
     }
 }
