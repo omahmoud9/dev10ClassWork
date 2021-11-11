@@ -180,6 +180,21 @@ public class View {
         return solarPanel;
     }
 
+    public SolarPanel deletePanel(SolarPanel solarPanel) {
+
+        int section = readInt("Section: ");
+        int row = readInt("Row: ");
+        int col = readInt("Column: ");
+
+        if(solarPanel.getSection() == section &&
+        solarPanel.getRow() == row  &&
+        solarPanel.getColumn() == col) {
+
+        }
+
+        return solarPanel;
+    }
+
 
 
     public void displayText(String text) {

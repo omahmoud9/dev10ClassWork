@@ -38,6 +38,7 @@ public class Controller {
                     updatePanel();
                     break;
                 case 4:
+                    deletePanel();
                     break;
                 default:
                     System.out.println("invalid Selection");
@@ -81,11 +82,10 @@ public class Controller {
         for(int index =0; index < solarPanels.size(); index++) {
             if(solarPanels.get(index).getRow() == row &&
                     solarPanels.get(index).getColumn() == col){
-                view.displayText("Updated location: ");
-                view.updatePanel(solarPanels.get(index));
+                view.displayText("Panel deleted ");
+                SolarPanelResult result = service.deleteById(solarPanels.get(index).getPanelId());
             }
         }
-
     }
 
     private void addPanel() throws DataAccessException {
