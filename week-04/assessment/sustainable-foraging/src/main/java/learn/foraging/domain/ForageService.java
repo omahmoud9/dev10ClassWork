@@ -129,7 +129,7 @@ public class ForageService {
             result.addErrorMessage("Forage date cannot be in the future.");
         }
 
-        if (forage.getKilograms() < 0 || forage.getKilograms() > 250.0) {
+        if (forage.getKilograms() <= 0 || forage.getKilograms() > 250.0) {
             result.addErrorMessage("Kilograms must be a positive number less than 250.0");
         }
     }

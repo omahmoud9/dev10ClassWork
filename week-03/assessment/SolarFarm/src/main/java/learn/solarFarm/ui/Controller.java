@@ -48,10 +48,10 @@ public class Controller {
     }
 
     private void findBySection() throws DataAccessException {
-            int section = view.getSolarPanelSection();
-            List<SolarPanel> solarPanels = service.findBySection(section);
-            view.displaySolarPanels(solarPanels);
-        }
+        int section = view.getSolarPanelSection();
+        List<SolarPanel> solarPanels = service.findBySection(section);
+        view.displaySolarPanels(solarPanels);
+    }
 
     private void updatePanel() throws DataAccessException {
 
@@ -60,17 +60,14 @@ public class Controller {
         int row = view.getSolarPanelRow();
         int col = view.getSolarPanelCol();
         List<SolarPanel> solarPanels = service.findBySection(section);
-        for(int index = 0; index < solarPanels.size(); index++) {
-            if(solarPanels.get(index).getRow() == row &&
-            solarPanels.get(index).getColumn() == col){
+        for (int index = 0; index < solarPanels.size(); index++) {
+            if (solarPanels.get(index).getRow() == row &&
+                    solarPanels.get(index).getColumn() == col) {
                 view.displayText("Updated location: ");
                 view.updatePanel(solarPanels.get(index));
                 SolarPanelResult result = service.update(solarPanels.get(index));
             }
-
         }
-
-
     }
 
     private void deletePanel() throws DataAccessException {
@@ -79,9 +76,9 @@ public class Controller {
         int row = view.getSolarPanelRow();
         int col = view.getSolarPanelCol();
         List<SolarPanel> solarPanels = service.findBySection(section);
-        for(int index =0; index < solarPanels.size(); index++) {
-            if(solarPanels.get(index).getRow() == row &&
-                    solarPanels.get(index).getColumn() == col){
+        for (int index = 0; index < solarPanels.size(); index++) {
+            if (solarPanels.get(index).getRow() == row &&
+                    solarPanels.get(index).getColumn() == col) {
                 view.displayText("Panel deleted ");
                 SolarPanelResult result = service.deleteById(solarPanels.get(index).getPanelId());
             }
@@ -91,15 +88,11 @@ public class Controller {
     private void addPanel() throws DataAccessException {
         SolarPanel solarPanel = view.makePanel();
         SolarPanelResult result = service.add(solarPanel);
-        if(result.isSuccessful()) {
+        if (result.isSuccessful()) {
             System.out.println("Panel Added!");
             System.out.println();
         } else {
             view.displayErrors(result.getMessages());
         }
     }
-
-
-
-
 }

@@ -42,15 +42,19 @@ public class SolarPanelService {
     private SolarPanelResult validateDomain(SolarPanel solarPanel) throws DataAccessException {
         SolarPanelResult result = new SolarPanelResult();
         List<SolarPanel> allSolarPanels = repository.findAll();
-        for(int i = 0; i < allSolarPanels.size(); i++)
-            if(solarPanel.getSection() == allSolarPanels.get(i).getSection())
-                if (solarPanel.getRow() == allSolarPanels.get(i).getRow())
-                    if(solarPanel.getColumn() == allSolarPanels.get(i).getColumn()) {
+        for (int i = 0; i < allSolarPanels.size(); i++) {
+            // boolean to validate
+            if (solarPanel.getSection() == allSolarPanels.get(i).getSection()) {
+                if (solarPanel.getRow() == allSolarPanels.get(i).getRow()) {
+                    if (solarPanel.getColumn() == allSolarPanels.get(i).getColumn()) {
                         result.addErrorMessage("Spot is already being used");
                     }
-
+                }
+            }
+        }
         return result;
     }
+
     public SolarPanelResult add(SolarPanel solarPanel) throws DataAccessException {
         SolarPanelResult result = validateInputs(solarPanel);
         if(!result.isSuccessful()) {
