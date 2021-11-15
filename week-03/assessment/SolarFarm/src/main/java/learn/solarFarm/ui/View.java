@@ -1,19 +1,15 @@
 package learn.solarFarm.ui;
 
-import learn.solarFarm.data.DataAccessException;
-import learn.solarFarm.data.SolarPanelFileRepository;
-import learn.solarFarm.domain.SolarPanelResult;
-import learn.solarFarm.domain.SolarPanelService;
 import learn.solarFarm.models.Materials;
 import learn.solarFarm.models.SolarPanel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class View {
 
-    private final static String TABLE_FORMAT = "%s. %-25s  %-25s  %-5s   %5s";
+
+    private final static String TABLE_FORMAT = "%s %-20s %-20s  %-20s  %-5s   %5s";
     private final Scanner console = new Scanner((System.in));
 
     public void displayHeader(String text) {
@@ -29,19 +25,18 @@ public class View {
         for (int i = 0; i < options.length; i++) {
             displayText(String.format("%s. %s", i, options[i].getText()));
         }
-        int selection = readInt(String.format("Choose [0-%s]: ", options.length - 1), 0, options.length);
-        return options[selection];
+        return null;
     }
 
     public void displaySolarPanels(List<SolarPanel> solarPanels) {
-        String tableHeader = String.format(TABLE_FORMAT, "Row", "Col", "Materials", "Year Installed", "Tracks The Sun");
+        String tableHeader = String.format(TABLE_FORMAT, "Section ", "Row", "Col", "Materials", "Year Installed", "Tracks The Sun");
         displayText(tableHeader);
         displayText("-".repeat(tableHeader.length()));
         if (solarPanels == null || solarPanels.size() == 0) {
             displayText("No Solar Panels found");
         } else {
             for (int i = 0; i < solarPanels.size(); i++) {
-                displayText(panelRow(i, solarPanels.get(i)));
+                displayText(panelRow(i,solarPanels.get(i)));
             }
         }
         displayText("-".repeat(tableHeader.length()));
@@ -49,39 +44,29 @@ public class View {
 
     private String panelRow(int index, SolarPanel solarPanel) {
         return String.format(TABLE_FORMAT,
-                index + 1,
+                solarPanel.getSection(),
                 solarPanel.getRow(),
                 solarPanel.getColumn(),
-                String.format("%,.2f", solarPanel.getMaterial()),
-                String.format("%s-%s", solarPanel.getYear()),
+                solarPanel.getMaterial(),
+                solarPanel.getYear(),
                 String.format("%s" ,solarPanel.isTrackable())
         );
     }
 
-    public SolarPanel makePanel(){
-        SolarPanel result = new SolarPanel();
-        System.out.println();
-        System.out.println("New Solar Panel");
-        result.setSection(readInt("Section:"));
-        result.setRow(readInt("Row:",1 ,250));
-        result.setColumn(readInt("Column:", 1, 250));
-        result.setMaterial(getMaterials());
-        result.setYear(readInt("Year installed:",1950,2021));
-        result.setTrackable(getTrackable());
-        return result;
-    }
+
 
     public int getSolarPanelSection(){
         return readInt("Section: ");
     }
 
-    public int getSolarPanelRow(){
+    public int getSolarPanelRow() {
         return readInt("Row: ");
     }
 
     public int getSolarPanelCol(){
         return readInt("Col: ");
     }
+
 
     public void displayErrors(List<String> errors) {
         for(String error: errors) {
@@ -161,7 +146,22 @@ public class View {
         }
     }
 
-    public void updatePanel(SolarPanel solarPanel) {
+    public SolarPanel makePanel(){
+        SolarPanel result = new SolarPanel();
+        System.out.println();
+        System.out.println("New Solar Panel");
+        result.setSection(readInt("Section:"));
+        result.setRow(readInt("Row:",1 ,250));
+        result.setColumn(readInt("Column:", 1, 250));
+        result.setMaterial(getMaterials());
+        result.setYear(readInt("Year installed:",1950,2021));
+        result.setTrackable(getTrackable());
+        return result;
+    }
+
+
+
+    public SolarPanel updatePanel(SolarPanel solarPanel) {
 
         int section = readInt("Section: ");
         if (section != 0) {
@@ -175,26 +175,29 @@ public class View {
 
         int col = readInt("Column: ");
         if (col > 0 && col < 251) {
-            solarPanel.setRow(row);
+            solarPanel.setRow(col);
         }
+        return solarPanel;
     }
 
-    public boolean confirmDeleteGame(SolarPanel solarPanel) {
-        displayHeader("Delete?");
-        System.out.println((String.format("Are you sure you want to delete %s - %s - %s?", solarPanel.getSection(), solarPanel.getRow(), solarPanel.getColumn())));
-        return readBoolean("Delete? [y]: ");
+    public SolarPanel deletePanel(SolarPanel solarPanel) {
+
+        int section = readInt("Section: ");
+        int row = readInt("Row: ");
+        int col = readInt("Column: ");
+
+        if(solarPanel.getSection() == section &&
+        solarPanel.getRow() == row  &&
+        solarPanel.getColumn() == col) {
+
+        }
+
+        return solarPanel;
     }
 
-    private boolean readBoolean(String prompt) {
-        while (true) {
-            String yes = readString(prompt);
-            return yes.equalsIgnoreCase("y");
-        }
-    }
+
 
     public void displayText(String text) {
         System.out.println(text);
     }
-
 }
-

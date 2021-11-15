@@ -16,13 +16,7 @@ public class Controller {
         this.view = view;
         this.service = service;
     }
-//    public void tryRun() {
-//        try {
-//            run();
-//        } catch (DataAccessException ex) {
-//            ;
-//        }
-//    }
+
 
     public void run() throws DataAccessException {
         view.displayHeader("Welcome to SolarPanel tracker");
@@ -44,6 +38,7 @@ public class Controller {
                     updatePanel();
                     break;
                 case 4:
+                    deletePanel();
                     break;
                 default:
                     System.out.println("invalid Selection");
@@ -52,26 +47,52 @@ public class Controller {
         } while (selection != 0);
     }
 
-    public void findBySection() {
-
+    private void findBySection() throws DataAccessException {
+        int section = view.getSolarPanelSection();
+        List<SolarPanel> solarPanels = service.findBySection(section);
+        view.displaySolarPanels(solarPanels);
     }
 
-    public void updatePanel() {
+    private void updatePanel() throws DataAccessException {
 
+        view.displayText("What Panel would you like to update?");
+        int section = view.getSolarPanelSection();
+        int row = view.getSolarPanelRow();
+        int col = view.getSolarPanelCol();
+        List<SolarPanel> solarPanels = service.findBySection(section);
+        for (int index = 0; index < solarPanels.size(); index++) {
+            if (solarPanels.get(index).getRow() == row &&
+                    solarPanels.get(index).getColumn() == col) {
+                view.displayText("Updated location: ");
+                view.updatePanel(solarPanels.get(index));
+                SolarPanelResult result = service.update(solarPanels.get(index));
+            }
+        }
+    }
+
+    private void deletePanel() throws DataAccessException {
+        view.displayText("What Panel would you like to delete?");
+        int section = view.getSolarPanelSection();
+        int row = view.getSolarPanelRow();
+        int col = view.getSolarPanelCol();
+        List<SolarPanel> solarPanels = service.findBySection(section);
+        for (int index = 0; index < solarPanels.size(); index++) {
+            if (solarPanels.get(index).getRow() == row &&
+                    solarPanels.get(index).getColumn() == col) {
+                view.displayText("Panel deleted ");
+                SolarPanelResult result = service.deleteById(solarPanels.get(index).getPanelId());
+            }
+        }
     }
 
     private void addPanel() throws DataAccessException {
         SolarPanel solarPanel = view.makePanel();
         SolarPanelResult result = service.add(solarPanel);
-        if(result.isSuccessful()) {
+        if (result.isSuccessful()) {
             System.out.println("Panel Added!");
             System.out.println();
         } else {
             view.displayErrors(result.getMessages());
         }
     }
-
-
 }
-
-

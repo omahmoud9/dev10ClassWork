@@ -3,28 +3,45 @@ package learn.foraging.data;
 import learn.foraging.models.Forage;
 import learn.foraging.models.Forager;
 import learn.foraging.models.Item;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ForageFileRepositoryTest {
 
-    LocalDate date = LocalDate.of(2020, 6, 26);
+    static final String SEED_FILE_PATH = "./data/forage-seed-2020-06-26.csv";
+    static final String TEST_FILE_PATH = "./data/forage_data_test/2020-06-26.csv";
+    static final String TEST_DIR_PATH = "./data/forage_data_test";
+    static final int FORAGE_COUNT = 54;
 
-    @Test
-    void shouldFindByDate() {
-        ForageFileRepository repo = new ForageFileRepository("./data/forage_data_test");
-        List<Forage> forages = repo.findByDate(date);
-        assertNotNull(forages);
-        assertTrue(forages.size() > 1);
+    final LocalDate date = LocalDate.of(2020, 6, 26);
+
+    ForageFileRepository repository = new ForageFileRepository(TEST_DIR_PATH);
+
+    @BeforeEach
+    void setup() throws IOException {
+        Path seedPath = Paths.get(SEED_FILE_PATH);
+        Path testPath = Paths.get(TEST_FILE_PATH);
+        Files.copy(seedPath, testPath, StandardCopyOption.REPLACE_EXISTING);
     }
 
     @Test
-    void shouldCreateForage() throws DataException {
+    void shouldFindByDate() {
+        List<Forage> forages = repository.findByDate(date);
+        assertEquals(FORAGE_COUNT, forages.size());
+    }
+
+    @Test
+    void shouldAdd() throws DataException {
         Forage forage = new Forage();
         forage.setDate(date);
         forage.setKilograms(0.75);
@@ -37,11 +54,9 @@ class ForageFileRepositoryTest {
         forager.setId("AAAA-1111-2222-FFFF");
         forage.setForager(forager);
 
-        ForageFileRepository repo = new ForageFileRepository("./data/forage_data_test");
-        forage = repo.add(forage);
+        forage = repository.add(forage);
 
-        assertNotNull(forage.getId());
-        assertTrue(forage.getId().length() > 2);
+        assertEquals(36, forage.getId().length());
     }
 
 }

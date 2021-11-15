@@ -46,7 +46,7 @@ class SolarPanelFileRepositoryTest {
     }
 
     @Test
-    void shouldNOTFindNonExistingOrbiter() throws DataAccessException {
+    void shouldNOTFindNonExistingSolarPanel() throws DataAccessException {
         SolarPanel no = repository.findById(100);
         SolarPanel no1 = repository.findById( 1000);
         assertNull(no);
@@ -133,8 +133,8 @@ class SolarPanelFileRepositoryTest {
 
     @Test
     void shouldNOTDeleteMissingPanel() throws DataAccessException {
-        boolean actual = repository.deleteById(15);
-        assertFalse(actual);
+        assertFalse(repository.deleteById(20));
+        assertEquals(6,repository.findAll().size());
 
     }
 }

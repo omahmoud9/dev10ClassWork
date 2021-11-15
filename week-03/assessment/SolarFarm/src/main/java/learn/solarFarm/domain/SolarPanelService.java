@@ -13,26 +13,13 @@ public class SolarPanelService {
     public SolarPanelService(SolarPanelRepository repository) {
         this.repository = repository;
     }
+
     public List<SolarPanel> findBySection(int section) throws DataAccessException{
         return repository.findBySection(section);
     }
 
 
-    public SolarPanelResult add(SolarPanel solarPanel) throws DataAccessException {
-        SolarPanelResult result = validateInputs(solarPanel);
-        if(!result.isSuccessful()) {
-            return result;
-        }
-        result = validateDomain(solarPanel);
-        if(!result.isSuccessful()) {
-            return result;
-        }
 
-        SolarPanel s = repository.add(solarPanel);
-        result.setSolarPanel(s);
-
-        return result;
-    }
 
     private SolarPanelResult validateInputs(SolarPanel solarPanel){
         SolarPanelResult result = new SolarPanelResult();
@@ -55,46 +42,53 @@ public class SolarPanelService {
     private SolarPanelResult validateDomain(SolarPanel solarPanel) throws DataAccessException {
         SolarPanelResult result = new SolarPanelResult();
         List<SolarPanel> allSolarPanels = repository.findAll();
-        for(int i = 0; i < allSolarPanels.size(); i++)
-            if(solarPanel.getSection() == allSolarPanels.get(i).getSection())
-                if (solarPanel.getRow() == allSolarPanels.get(i).getRow())
-                    if(solarPanel.getColumn() == allSolarPanels.get(i).getColumn()) {
+        for (int i = 0; i < allSolarPanels.size(); i++) {
+            // boolean to validate
+            if (solarPanel.getSection() == allSolarPanels.get(i).getSection()) {
+                if (solarPanel.getRow() == allSolarPanels.get(i).getRow()) {
+                    if (solarPanel.getColumn() == allSolarPanels.get(i).getColumn()) {
                         result.addErrorMessage("Spot is already being used");
                     }
+                }
+            }
+        }
+        return result;
+    }
+
+    public SolarPanelResult add(SolarPanel solarPanel) throws DataAccessException {
+        SolarPanelResult result = validateInputs(solarPanel);
+        if(!result.isSuccessful()) {
+            return result;
+        }
+        result = validateDomain(solarPanel);
+        if(!result.isSuccessful()) {
+            return result;
+        }
+
+        SolarPanel s = repository.add(solarPanel);
+        result.setSolarPanel(s);
 
         return result;
     }
 
     public SolarPanelResult update(SolarPanel solarPanel) throws DataAccessException {
         SolarPanelResult result = validateInputs(solarPanel);
-        if(!result.isSuccessful()) {
+        if (!result.isSuccessful()) {
             return result;
         }
 
-        SolarPanel exsisting = repository.findById(solarPanel.getPanelId());
-        if (exsisting == null) {
-            result.addErrorMessage("Panel Id not found");
-            return result;
-        }
-        if(exsisting.getMaterial() != solarPanel.getMaterial()) {
-            result.addErrorMessage("Cannot update Materials");
-            return result;
-        }
-        if(exsisting.getYear() != solarPanel.getYear()) {
-            result.addErrorMessage("Cannot update year.");
-            return result;
-        }
-        if (exsisting.isTrackable() != solarPanel.isTrackable()) {
-            result.addErrorMessage("Cant remove tracking");
-            return result;
-        }
+        if (solarPanel.getSection() < 1) {
+            result.addErrorMessage("id should be set for update");
 
-        boolean success = repository.update(solarPanel);
-        if(!success){
-            result.addErrorMessage("Could not find solarPanel id");
+            if (result.isSuccessful() && !repository.update(solarPanel)) {
+                result.addErrorMessage("Could not find solarPanel id");
+            }
         }
+        repository.update(solarPanel);
+
         return result;
     }
+
 
     public SolarPanelResult deleteById(int panelId) throws DataAccessException {
         SolarPanelResult result = new SolarPanelResult();

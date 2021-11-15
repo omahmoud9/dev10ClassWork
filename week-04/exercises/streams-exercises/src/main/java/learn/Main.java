@@ -1,7 +1,10 @@
 package learn;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -10,16 +13,17 @@ public class Main {
         StudentDataStore ds = new StudentDataStore();
         List<Student> students = ds.all();
 
-        // 0. Print all students
+//         0. Print all students
         // iteration solution
-        for (Student student : students) {
-            System.out.println(student);
-        }
-
-        // stream solution
-        students.stream().forEach(System.out::println);
+//        for (Student student : students) {
+//            System.out.println(student);
+//        }
+//
+//        // stream solution
+//        students.stream().forEach(System.out::println);
 
         // 1. Print students from Argentina
+
 
         // 2. Print students whose last names starts with 'T'.
 
@@ -45,11 +49,26 @@ public class Main {
 
         // 13. Print a distinct list of courses students are registered for.
 
-        // 14. Print a distinct list of courses students are registered for, ordered by name.
-
-        // 15. Count students per country.
-
-        // 16. Count students per country. Order by most to fewest students.
+//        // 14. Print a distinct list of courses students are registered for, ordered by name.
+//        students.stream()
+//                .flatMap(student -> student.getRegistrations().stream())
+//                .map(i -> i.getCourse())
+//                .distinct()
+//                .sorted()
+//                .forEach(i -> System.out.println(i));
+//
+//        // 15. Count students per country.
+//
+//        students.stream()
+//                .collect(Collectors.groupingBy(Student::getCountry, Collectors.counting()))
+//                .forEach((key, value) -> System.out.printf("%s: %s%n", key, value));
+//
+//        // 16. Count students per country. Order by most to fewest students.
+//        students.stream()
+//                .collect(Collectors.groupingBy(Student::getCountry, Collectors.counting()))
+//                .entrySet().stream()
+//                .sorted(Comparator.comparing(Map.Entry<String, Long> ::getValue).reversed())
+//                .forEach(entry -> System.out.printf("%s: %s%n", entry.getKey(), entry.getValue()));
 
         // 17. Count registrations per course.
 
@@ -59,6 +78,7 @@ public class Main {
         //     Map Students to StudentSummary, then sort and limit by IQ (your choice of low or high).
 
         // 20. What is the average GPA per country (remember, it's random fictional data).
+
 
         // 21. What is the maximum GPA per country?
 

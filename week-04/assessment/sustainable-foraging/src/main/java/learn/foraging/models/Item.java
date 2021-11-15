@@ -1,6 +1,7 @@
 package learn.foraging.models;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Item {
 
@@ -49,5 +50,21 @@ public class Item {
 
     public void setDollarPerKilogram(BigDecimal dollarPerKilogram) {
         this.dollarPerKilogram = dollarPerKilogram;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return id == item.id &&
+                Objects.equals(name, item.name) &&
+                category == item.category &&
+                Objects.equals(dollarPerKilogram, item.dollarPerKilogram);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, category, dollarPerKilogram);
     }
 }

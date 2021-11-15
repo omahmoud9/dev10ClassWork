@@ -1,7 +1,5 @@
-package learn.foraging.domain;
+package learn.foraging.data;
 
-import learn.foraging.data.DataException;
-import learn.foraging.data.ItemRepository;
 import learn.foraging.models.Category;
 import learn.foraging.models.Item;
 
@@ -11,11 +9,11 @@ import java.util.List;
 
 public class ItemRepositoryDouble implements ItemRepository {
 
+    public final static Item ITEM = new Item(1, "Chanterelle", Category.EDIBLE, new BigDecimal("9.99"));
     private final ArrayList<Item> items = new ArrayList<>();
 
     public ItemRepositoryDouble() {
-        Item item = new Item(1, "Chanterelle", Category.EDIBLE, new BigDecimal("9.99"));
-        items.add(item);
+        items.add(ITEM);
     }
 
     @Override

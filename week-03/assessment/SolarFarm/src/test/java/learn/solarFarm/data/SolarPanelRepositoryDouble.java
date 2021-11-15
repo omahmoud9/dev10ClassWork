@@ -22,6 +22,8 @@ public class SolarPanelRepositoryDouble implements SolarPanelRepository{
         solarPanel.setYear(2000);
         solarPanels.add(solarPanel);
         solarPanels.add(new SolarPanel(7,7,7,7,Materials.COPPER_INDIUM_GALLUIM_SELENIDE,2000,true));
+        solarPanels.add(new SolarPanel(8,1,7,7,Materials.COPPER_INDIUM_GALLUIM_SELENIDE,2000,true));
+        solarPanels.add(new SolarPanel(9,1,8,7,Materials.COPPER_INDIUM_GALLUIM_SELENIDE,2000,true));
     }
 
     @Override

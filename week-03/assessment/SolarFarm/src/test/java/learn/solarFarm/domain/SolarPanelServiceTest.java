@@ -16,9 +16,10 @@ class SolarPanelServiceTest {
 
     @Test
     void shouldAddSolarPanel() throws DataAccessException {
-        SolarPanelResult result = service.add(new SolarPanel(1,1,12,12, Materials.MONORYSTALLINE_SILICON,2000,true));
+        SolarPanelResult result = service.add(new SolarPanel(1, 1, 12, 12, Materials.MONORYSTALLINE_SILICON, 2000, true));
         assertTrue(result.isSuccessful());
     }
+
     @Test
     void shouldNotAddRowOver250() throws DataAccessException {
         SolarPanel solarPanel = new SolarPanel();
@@ -43,21 +44,18 @@ class SolarPanelServiceTest {
 
     @Test
     void shouldNotAddSolarPanelWithSameSpot() throws DataAccessException {
-        SolarPanelResult result = service.add(new SolarPanel(0,7,7,7,Materials.MONORYSTALLINE_SILICON,200,true));
-        SolarPanelResult result1 = service.add(new SolarPanel(0,1,1,1,Materials.MONORYSTALLINE_SILICON,200,true));
+        SolarPanelResult result = service.add(new SolarPanel(0, 7, 7, 7, Materials.MONORYSTALLINE_SILICON, 200, true));
+        SolarPanelResult result1 = service.add(new SolarPanel(0, 1, 1, 1, Materials.MONORYSTALLINE_SILICON, 200, true));
         assertFalse(result.isSuccessful());
         assertFalse(result1.isSuccessful());
     }
 
     @Test
-    void shouldUpdate() throws DataAccessException{
-        SolarPanelResult result = service.update(new SolarPanel(1,12,12,12, Materials.MULTICRYSTALLINE_SILICON,1955,false));
+    void shouldUpdate() throws DataAccessException {
+        SolarPanelResult result = service.update(new SolarPanel(1, 12, 12, 12, Materials.MULTICRYSTALLINE_SILICON, 1955, false));
         assertTrue(result.isSuccessful());
     }
-    @Test
-    void shouldNotUpdate() throws DataAccessException {
-        SolarPanelResult result = service.update(new SolarPanel(1,12,12,12, Materials.MONORYSTALLINE_SILICON,1955,false));
-    }
+
 
     @Test
     void shouldDeletePanel() throws DataAccessException {
@@ -67,14 +65,15 @@ class SolarPanelServiceTest {
 
     @Test
     void shouldNotDelete() throws DataAccessException {
-        SolarPanelResult result = service.deleteById(9);
+        SolarPanelResult result = service.deleteById(10);
         assertFalse(result.isSuccessful());
     }
+
 
     @Test
     void shouldFindBySection() throws DataAccessException {
         List<SolarPanel> section1 = service.findBySection(1);
         assertNotNull(section1);
-        assertEquals(2,section1);
+        assertEquals(3, section1.size());
     }
 }
