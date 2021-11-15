@@ -192,6 +192,19 @@ public class View {
         }
     }
 
+    public void reportForages(List<Forage> forages) {
+        if (forages == null || forages.isEmpty()) {
+            io.println("No forages found.");
+            return;
+        }
+        for (Forage forage : forages) {
+            io.printf("Item: %s, Kilograms foraged: %s %n",
+                    forage.getItem().getName(),
+                    forage.getKilograms()
+            );
+        }
+    }
+
     public void displayItems(List<Item> items) {
 
         if (items.size() == 0) {
