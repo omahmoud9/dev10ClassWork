@@ -61,8 +61,7 @@ public class Controller {
                     reportKgPerItem();
                     break;
                 case REPORT_CATEGORY_VALUE:
-                    view.displayStatus(false, "NOT IMPLEMENTED");
-                    view.enterToContinue();
+                    reportValuePerCategory();
                     break;
 //                case GENERATE:
 //                    generate();
@@ -82,8 +81,16 @@ public class Controller {
     private void reportKgPerItem() {
         LocalDate date = view.getForageDate();
         List<Forage> forages = forageService.findByDate(date);
-        view.reportForages(forages);
+        view.reportForagesByKilos(forages);
         view.enterToContinue();
+    }
+
+    private void reportValuePerCategory() {
+        LocalDate date = view.getForageDate();
+        List<Forage> forages = forageService.findByDate(date);
+        view.reportForagesByValueCategories(forages);
+        view.enterToContinue();
+
     }
 
     private void viewItems() {

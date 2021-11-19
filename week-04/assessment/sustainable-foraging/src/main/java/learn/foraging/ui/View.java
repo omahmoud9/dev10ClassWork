@@ -6,6 +6,7 @@ import learn.foraging.models.Forager;
 import learn.foraging.models.Item;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -192,7 +193,36 @@ public class View {
         }
     }
 
-    public void reportForages(List<Forage> forages) {
+    public void reportForagesByValueCategories(List<Forage> forages) {
+        if (forages == null || forages.isEmpty()) {
+            io.println("No forages found.");
+            return;
+        }
+        BigDecimal edibleValue = new BigDecimal(0);
+        BigDecimal medicinalValue = new BigDecimal(0);
+        BigDecimal inedibleValue = new BigDecimal(0);
+        BigDecimal poisonousValue = new BigDecimal(0);
+
+        for (Forage forage : forages) {
+            if(forage.getItem().getCategory() == Category.EDIBLE){
+                edibleValue = edibleValue.add(forage.getValue()).setScale(2, RoundingMode.HALF_EVEN);
+            } else if((forage.getItem().getCategory() == Category.MEDICINAL)) {
+                medicinalValue = medicinalValue.add(forage.getValue()).setScale(2, RoundingMode.HALF_EVEN);
+        }
+            else if((forage.getItem().getCategory() == Category.INEDIBLE)) {
+                inedibleValue = inedibleValue.add(forage.getValue()).setScale(2, RoundingMode.HALF_EVEN);
+            }
+            else if((forage.getItem().getCategory() == Category.POISONOUS)) {
+                poisonousValue = poisonousValue.add(forage.getValue()).setScale(2, RoundingMode.HALF_EVEN);
+            }
+    }
+        io.printf("Category: Edible, Value: $%s %n", edibleValue);
+        io.printf("Category: Medicinal, Value: $%s %n", medicinalValue);
+        io.printf("Category: Inedible, Value: $%s %n", inedibleValue);
+        io.printf("Category: Poisonous, Value: $%s %n", poisonousValue);
+    }
+
+    public void reportForagesByKilos(List<Forage> forages) {
         if (forages == null || forages.isEmpty()) {
             io.println("No forages found.");
             return;
